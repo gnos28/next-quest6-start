@@ -31,7 +31,8 @@ export async function getStaticProps() {
   return {
     props: {
       articles,
-      lastUpdateDate: currentDate
-    }
+      lastUpdateDate: currentDate,
+    },
+    revalidate: 5,
   };
 }

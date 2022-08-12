@@ -9,7 +9,7 @@ export default function ArticleDetailPage({
   title,
   body,
   lastUpdateDate,
-  pictureUrl
+  pictureUrl,
 }) {
   const router = useRouter();
   return (
@@ -42,7 +42,7 @@ export async function getStaticPaths() {
   const paths = articles.map((a) => ({ params: { id: a.id.toString() } }));
   return {
     paths,
-    fallback: true
+    fallback: true,
   };
 }
 
@@ -55,7 +55,8 @@ export async function getStaticProps({ params }) {
       title,
       body,
       pictureUrl,
-      lastUpdateDate: currentDate
-    }
+      lastUpdateDate: currentDate,
+    },
+    revalidate: 2,
   };
 }

@@ -20,7 +20,8 @@ export async function getStaticProps() {
   return {
     props: {
       campuses,
-      lastUpdateDate: currentDate
-    }
+      lastUpdateDate: currentDate,
+    },
+    revalidate: 10,
   };
 }
